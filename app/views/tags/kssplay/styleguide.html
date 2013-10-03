@@ -1,0 +1,39 @@
+%{
+	sectionObj = _parser.getSection(_section)
+%}
+ 
+#{set 'body'}
+	#{doBody /}
+#{/set}
+
+<div class="styleguide-example">
+  <h3>
+  	${sectionObj.section}
+  </h3>
+  <div class="styleguide-description markdown-body">
+    <p>${sectionObj.description}</p>
+  </div>
+
+  #{if sectionObj.modifiers}
+      <ul class="styleguide-modifier">
+      	#{list items:sectionObj.modifiers, as: 'modifier'}
+          <li><strong>${modifier.name}</strong> - ${modifier.description}</li>
+		#{/list}
+      </ul>
+  #{/if} 
+  
+  <div class="styleguide-element">
+  	${body.replaceAll(/-modifierClass/, "").raw()}   
+  </div>
+  
+  #{list items:sectionObj.modifiers, as: 'modifier'}
+  	<div class="styleguide-element styleguide-modifier">
+      <span class="styleguide-modifier-name">${modifier.name}</span>
+	  ${body.replaceAll(/-modifierClass/, modifier.className()).raw()}
+    </div>
+  #{/list}
+  
+  <div class="styleguide-html">
+   		${body.replaceAll(/ -modifierClass/, "")}
+  </div>
+</div>	

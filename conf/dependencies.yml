@@ -1,0 +1,4 @@
+self: play -> kssplay 0.1
+
+require:
+    - play
