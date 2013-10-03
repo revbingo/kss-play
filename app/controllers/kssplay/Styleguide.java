@@ -1,13 +1,8 @@
 package controllers.kssplay;
 
-import play.*;
-import play.mvc.*;
-
-import java.util.*;
+import play.mvc.Controller;
 
 import com.revbingo.kss.KssParser;
-
-import models.*;
 
 public class Styleguide extends Controller {
 
