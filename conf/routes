@@ -6,5 +6,5 @@
 # ~~~~
 
 #{if play.mode == play.Play.Mode.DEV}
-	GET     /?                      kssplay.Styleguide.index
+	GET     /?                      kssplay.Styleguide.styleguide
 #{/if}

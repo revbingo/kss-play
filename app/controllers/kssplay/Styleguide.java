@@ -13,11 +13,11 @@ import com.revbingo.kss.Section;
 
 public class Styleguide extends Controller {
 
-    public static void index() {
+    public static void styleguide() {
     	String stylesheetLocation = Play.configuration.getProperty("stylesheets.dir", "public/stylesheets");
 		KssParser parser = new KssParser(stylesheetLocation);
 		Map<String, Section> sections = parser.getSections();
 		Set<String> sectionList = parser.getSections().keySet();
-        render(sectionList, sections);
+        renderTemplate("Styleguide/styleguide.html", sectionList, sections);
     }
 }
