@@ -6,15 +6,21 @@
 
 <h1>Styleguide</h1>
 
-<div>
+<div id="nav">
 	<h2>Contents</h2>
 	<ul>
-		#{list items: sections, as: 'section'}
+		#{list items: sectionList, as: 'section'}
 		<li><a href="#${section}">${section}</a></li>
 		#{/list}
 	</ul>
 </div>
 
-#{styleguide section: '1.0.0', parser: parser}
+<div id="content">
+#{styleguide section: 'ColourDivs'}
 	<div class="flashydiv -modifierClass">A div</div>
 #{/styleguide}
+
+#{styleguide section: 'WhizzyButtons'}
+	<button class="whizzybutton -modifierClass">Button</button>
+#{/styleguide}
+</div>

@@ -1,5 +1,5 @@
 %{
-	sectionObj = _parser.getSection(_section)
+	sectionObj = play.mvc.Scope.RenderArgs.current().get("sections").get(_section)
 %}
  
 #{set 'body'}
