@@ -1,23 +1,32 @@
 package controllers.kssplay;
 
-import java.lang.reflect.Modifier;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
+
+import com.revbingo.kss.KssParser;
+import com.revbingo.kss.StyleguideSection;
 
 import play.Play;
 import play.mvc.Controller;
 import play.vfs.VirtualFile;
 
-import com.revbingo.kss.KssParser;
-import com.revbingo.kss.Section;
-
 public class Styleguide extends Controller {
 
     public static void styleguide() {
     	String stylesheetLocation = Play.configuration.getProperty("stylesheets.dir", "public/stylesheets");
-		KssParser parser = new KssParser(stylesheetLocation);
-		Map<String, Section> sections = parser.getSections();
-		Set<String> sectionList = parser.getSections().keySet();
-        renderTemplate("Styleguide/styleguide.html", sectionList, sections);
+		try {
+			File stylesheetsDir = new File(stylesheetLocation);
+			if(!stylesheetsDir.exists()) throw new IOException();
+			VirtualFile vf = VirtualFile.open(stylesheetsDir);
+			KssParser parser = new KssParser(vf.getRealFile());
+			Map<String, StyleguideSection> sections = parser.getStyleguideSections();
+			Set<String> sectionList = parser.getStyleguideSections().keySet();
+	        renderTemplate("Styleguide/styleguide.html", sectionList, sections);
+		} catch (IOException e) {
+			error("Cannot read directory " + stylesheetLocation + ". Please check the stylesheets.dir property");
+		}
+		
     }
 }
