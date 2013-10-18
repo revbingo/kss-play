@@ -23,7 +23,7 @@ public class Styleguide extends Controller {
 			KssParser parser = new KssParser(vf.getRealFile());
 			Map<String, StyleguideSection> sections = parser.getStyleguideSections();
 			Set<String> sectionList = parser.getStyleguideSections().keySet();
-	        renderTemplate("Styleguide/styleguide.html", sectionList, sections);
+	        render(sectionList, sections);
 		} catch (IOException e) {
 			error("Cannot read directory " + stylesheetLocation + ". Please check the stylesheets.dir property");
 		}

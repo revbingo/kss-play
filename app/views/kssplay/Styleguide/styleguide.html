@@ -1,0 +1,9 @@
+#{extends 'kssplay/Styleguide/styleguide-base.html' /}
+
+#{list items: sectionList, as: 'section'}
+	%{ sectionObject = sections.get(section) }%
+	
+	#{styleguide section: sectionObject.sectionReference}
+		${sectionObject.markup.raw()}
+	#{/styleguide}
+#{/list}
