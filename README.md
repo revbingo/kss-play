@@ -1,7 +1,7 @@
 kss-play
 =======
 
-This is a Play module that provides a "living styleguide" in your Play applications, a la [http://warpspire.com/kss]
+This is a Play module that provides a "living styleguide" in your Play applications, a la http://warpspire.com/kss
 
 ### Creating a Styleguide
 
@@ -11,12 +11,14 @@ This is a Play module that provides a "living styleguide" in your Play applicati
 
 * Add the kssplay module to your dependencies.yml file, and import the routes for the module in your routes file
     
+```
     GET		  /styleguide								module:kssplay
+```
 
 Then you have 2 choices:
 
-1) Add markup to your KSS.  This uses the same format as supported by the [Node.js][https://github.com/hughsk/kss-node] 
-and [PHP][https://github.com/scaninc/kss-php] ports of this project. 
+1) Add markup to your KSS.  This uses the same format as supported by the [Node.js](https://github.com/hughsk/kss-node)
+and [PHP](https://github.com/scaninc/kss-php) ports of this project. 
 
 ```css
 /*
@@ -52,12 +54,13 @@ a.button.stars--disabled {
 
 By including the markup in your KSS documentation, the styleguide will be automatically produced when you hit http://localhost:9000/styleguide
 
-2) If you prefer to remain true to the orignal spec - in your application, create a views/Styleguide/styleguide.html file that extends kssplay/Styleguide/styleguide-base.html. Add #{styleguide}
+2) If you prefer to remain true to the orignal spec - in your application, create a `views/Styleguide/styleguide.html` file that extends `kssplay/Styleguide/styleguide-base.html`. Add `#{styleguide}`
   tag for each section of your styleguide.  The body of the tag should be the html that will be used to demonstrate the style. 
-  Add the "-modifierClass" class to be replaced by each modifier in the examples
+  Add the `-modifierClass` class to be replaced by each modifier in the examples
   
 Example:
    
+```
     #{extends 'kssplay/Styleguide/styleguide-base.html' /}
   
     #{styleguide section: '1.0'}
@@ -67,8 +70,9 @@ Example:
     #{styleguide section: '1.1'}
        <button class="whizzybutton -modifierClass">This is a really whizzy button</button>
     #{/styleguide}
+```
 
-Optionally, you can set the folder that should be scanned for stylesheet in application.conf, using the stylesheets.dir property
+* Optionally, you can set the folder that should be scanned for stylesheet in application.conf, using the stylesheets.dir property
 
 ### Viewing the styleguide
 
