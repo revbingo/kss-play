@@ -1,0 +1,22 @@
+#{selenium}
+    // Open the home page, and check that no error occured
+    open('/styleguide')
+    assertTitle('Styleguide')
+    
+    assertText('css=div#ColourDivs > h3', 'ColourDivs')
+	assertText('css=div#WhizzyButtons > h3', 'WhizzyButtons')
+    
+    assertElementPresent('css=div#content')
+    
+    assertElementPresent('css=div#ColourDivs')
+    assertElementPresent('css=div.flashydiv')
+    assertElementPresent('css=div.flashydiv.red')
+    assertElementPresent('css=div.flashydiv.blue')
+    
+    assertElementPresent('css=div#WhizzyButtons')
+    assertElementPresent('css=button.whizzybutton')
+    assertElementPresent('css=button.whizzybutton.red')
+    assertElementPresent('css=button.whizzybutton.blue')
+    assertElementPresent('css=button.whizzybutton.disabled')
+    
+#{/selenium}

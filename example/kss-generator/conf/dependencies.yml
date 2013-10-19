@@ -1,0 +1,12 @@
+# Application dependencies
+
+require:
+    - play
+    - mine -> kss-play 0.1
+    
+repositories:
+    - local:
+         type: local
+         artifact: ${application.path}/../kssplay
+         contains:
+             - mine -> *

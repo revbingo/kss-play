@@ -1,0 +1,61 @@
+body {
+	width: 1100px;
+}
+
+div#nav {
+	float: left;
+	width: 300px;
+	left: 0px;
+	border: 1px solid #cccccc;
+	background-color: #eeeeee;
+}
+
+div#nav > ul > li {
+	b
+}
+
+div#content {
+	position: absolute;
+	width: 600px;
+	left: 330px;
+}
+
+/* A box
+
+Markup: <div class="flashydiv -modifierClass">A div</div>
+
+.red - make it red
+.blue - make it blue
+
+Styleguide ColourDivs
+*/
+div.red {
+	border: 1px solid red;
+}
+
+div.blue {
+	border: 1px solid blue;
+}
+
+/* A nice button
+
+Markup: <button class="whizzybutton -modifierClass">Button</button>
+
+.red - make it red
+.blue - make it blue
+.disabled - disable it
+
+Styleguide WhizzyButtons
+*/
+button.red {
+	background-color: red;
+}
+
+button.blue {
+	background-color: blue;
+}
+
+button.disabled {
+	color: #999999;
+}
+
