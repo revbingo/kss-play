@@ -1,7 +1,15 @@
 kss-play
 =======
 
-This is a Play module that provides a "living styleguide" in your Play applications, a la http://warpspire.com/kss
+This is a Play module that provides a "living styleguide" in your Play applications, a la http://warpspire.com/kss.  For a 
+quick start
+
+```
+cd example/kss-generator
+play run
+```
+
+and then visit http://localhost:9000/styleguide in your browser
 
 ### Creating a Styleguide
 
